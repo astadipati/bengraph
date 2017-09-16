@@ -6,8 +6,17 @@ const sequelize = new Sequelize('bengraph', 'root', 'Kul0nuwun', {
 });
 
 const db = {
+    // import
     User: sequelize.import('./user'),
+    Board: sequelize.import('./board'),
+    Suggestion: sequelize.import('./suggestion'),
 };
+
+Object.keys(db).forEach((modelName) => {
+    if ('assosiate' in db[modelName]) {
+        db[modelName].associate(db);
+    }
+});
 
 db.sequelize = sequelize;
 // db.Sequelize = Sequelize;

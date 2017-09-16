@@ -24,4 +24,4 @@ app.use(
 app.use('/graphql', bodyParser.json(), 
 graphqlExpress({schema, context: {models}}));
 
-models.sequelize.sync().then (()=>app.listen(3000));
+models.sequelize.sync().then (()=>app.listen(4000));
